@@ -3,7 +3,6 @@ package br.com.desafio.autorizador.usecase.transacao;
 import br.com.desafio.autorizador.usecase.port.input.RealizarTransacaoInputPort;
 import br.com.desafio.autorizador.usecase.port.input.command.RealizarTransacaoCommand;
 import br.com.desafio.autorizador.usecase.port.output.AtualizarSaldoOutputPort;
-import br.com.desafio.autorizador.usecase.port.output.ExisteCartaoOutputPort;
 import br.com.desafio.autorizador.usecase.port.output.ObterCartaoLockOutputPort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,14 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 public class RealizarTransacaoUseCase implements RealizarTransacaoInputPort {
 
     private final ValidadorTransacao validadorTransacao;
-    private final ExisteCartaoOutputPort existeCartaoOutputPort;
     private final ObterCartaoLockOutputPort obterCartaoLockOutputPort;
     private final AtualizarSaldoOutputPort atualizarSaldoOutputPort;
 
-    public RealizarTransacaoUseCase(ValidadorTransacao validadorTransacao, ExisteCartaoOutputPort existeCartaoOutputPort,
-                                    ObterCartaoLockOutputPort obterCartaoLockOutputPort, AtualizarSaldoOutputPort atualizarSaldoOutputPort) {
+    public RealizarTransacaoUseCase(ValidadorTransacao validadorTransacao, ObterCartaoLockOutputPort obterCartaoLockOutputPort,
+                                    AtualizarSaldoOutputPort atualizarSaldoOutputPort) {
         this.validadorTransacao = validadorTransacao;
-        this.existeCartaoOutputPort = existeCartaoOutputPort;
         this.obterCartaoLockOutputPort = obterCartaoLockOutputPort;
         this.atualizarSaldoOutputPort = atualizarSaldoOutputPort;
     }
