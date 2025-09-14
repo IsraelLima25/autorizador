@@ -1,4 +1,13 @@
-#Teste de programação - VR Benefícios
+# Arquitetura
+
+Durante o desenvolvimento optei por usar uma arquitetura estilo hexagonal.
+Com isso acredito que ganhamos na troca de tecnologia sem reescrever regra de negócio,
+evolução segura do domínio e testes rápidos e confiáveis.
+
+Na validação da transação optei por usar o padrão de projeto "chain of responsability", com isso
+conseguimos dividir bem as responsabilidades(SOLID -> SRP), ter desacoplamento total e Extensível/OCP.
+
+# Teste de programação - VR Benefícios
 
 Como parte do processo de seleção, gostaríamos que você desenvolvesse um pequeno sistema, para que possamos ver melhor o seu trabalho.
 
