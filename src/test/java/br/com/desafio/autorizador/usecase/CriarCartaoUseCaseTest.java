@@ -5,6 +5,7 @@ import br.com.desafio.autorizador.usecase.cartao.CriarCartaoUseCase;
 import br.com.desafio.autorizador.usecase.command.CriarCartaoCommand;
 import br.com.desafio.autorizador.usecase.port.output.CriarCartaoOutputPort;
 import br.com.desafio.autorizador.usecase.port.output.ExisteCartaoOutputPort;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -28,6 +29,7 @@ class CriarCartaoUseCaseTest {
     private CriarCartaoOutputPort criarCartaoOutputPort;
 
     @Test
+    @DisplayName("Deve criar cartão")
     void deveCriarCartao(){
         CriarCartaoCommand cartaoCommand = new CriarCartaoCommand("152121215454", "123456");
         criarCartaoUseCase.execute(cartaoCommand);
@@ -35,6 +37,7 @@ class CriarCartaoUseCaseTest {
     }
 
     @Test
+    @DisplayName("Quando criar um cartão se ele já existir deve lançar uma exception")
     void quandoCartaoRepetidoDeveLancarException(){
         CriarCartaoCommand cartaoCommand = new CriarCartaoCommand("152121215454", "123456");
         when(existeCartaoOutputPort.existeCartao(cartaoCommand.numero())).thenThrow(new CartaoRepetidoException(cartaoCommand.numero(),

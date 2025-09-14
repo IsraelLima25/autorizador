@@ -3,6 +3,7 @@ package br.com.desafio.autorizador.adapter.input.rest;
 import br.com.desafio.autorizador.adapter.exception.RestExceptionHandler;
 import br.com.desafio.autorizador.usecase.port.input.RealizarTransacaoInputPort;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -28,6 +29,7 @@ class TransacaoControllerTest {
     private RealizarTransacaoInputPort realizarTransacaoInputPort;
 
     @Test
+    @DisplayName("Deve realizar transação com sucesso")
     void deveRealizarTransacao() throws Exception {
 
         var requestJson = """

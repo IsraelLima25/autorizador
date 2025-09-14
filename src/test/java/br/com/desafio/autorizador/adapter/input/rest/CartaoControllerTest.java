@@ -8,6 +8,7 @@ import br.com.desafio.autorizador.domain.exception.CartaoRepetidoException;
 import br.com.desafio.autorizador.usecase.port.input.CriarCartaoInputPort;
 import br.com.desafio.autorizador.usecase.port.input.ObterSaldoCartaoInputPort;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,7 @@ class CartaoControllerTest {
     ObterSaldoCartaoInputPort obterSaldoCartaoInputPort;
 
     @Test
+    @DisplayName("Deve criar cartão e retornar 201")
     void deveCriarCartaoRetorna201() throws Exception {
         var numero = "6549873025634501";
         var senha = "123456";
@@ -66,6 +68,7 @@ class CartaoControllerTest {
     }
 
     @Test
+    @DisplayName("Quando cartao não existe deve retornar 422")
     void deveRetornar422QuandoCartaoExiste() throws Exception {
         when(criarCartaoInputPort.execute(any()))
                 .thenThrow(new CartaoRepetidoException("6549873025634501", "9999"));
@@ -84,6 +87,7 @@ class CartaoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve obter saldo do cartão e retornar 200")
     void deveObterSaldoCartaoRetornar200() throws Exception {
 
         var response = new SaldoCartaoResponseDTO(new BigDecimal("500.00"));
@@ -95,6 +99,7 @@ class CartaoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar 404 quando cartão não existe")
     void deveRetornar404QuandoCartaoNaoExiste() throws Exception {
         when(obterSaldoCartaoInputPort.execute(any()))
                 .thenThrow(new CartaoNaoExisteException());

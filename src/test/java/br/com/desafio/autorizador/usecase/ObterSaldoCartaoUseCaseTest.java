@@ -5,6 +5,7 @@ import br.com.desafio.autorizador.domain.exception.CartaoNaoExisteException;
 import br.com.desafio.autorizador.usecase.cartao.ObterSaldoCartaoUseCase;
 import br.com.desafio.autorizador.usecase.port.output.ExisteCartaoOutputPort;
 import br.com.desafio.autorizador.usecase.port.output.ObterSaldoCartaoOutputPort;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -30,6 +31,7 @@ class ObterSaldoCartaoUseCaseTest {
     private ExisteCartaoOutputPort existeCartaoOutputPort;
 
     @Test
+    @DisplayName("Deve retornar saldo do cartão")
     void deveRetornarSaldoCartao(){
         when(existeCartaoOutputPort.existeCartao("12121254545")).thenReturn(true);
         when(obterSaldoCartaoOutputPort.obterSaldo("12121254545"))
@@ -39,6 +41,7 @@ class ObterSaldoCartaoUseCaseTest {
     }
 
     @Test
+    @DisplayName("Quando cartão não existir deve lancar exception")
     void quandoCartaoNaoExisteDeveLancarException(){
         when(existeCartaoOutputPort.existeCartao("12121254545")).thenReturn(false);
         assertThrows(CartaoNaoExisteException.class, () -> {

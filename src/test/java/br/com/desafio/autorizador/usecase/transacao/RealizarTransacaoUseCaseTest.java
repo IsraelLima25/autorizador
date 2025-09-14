@@ -4,6 +4,7 @@ import br.com.desafio.autorizador.usecase.command.RealizarTransacaoCommand;
 import br.com.desafio.autorizador.usecase.port.output.AtualizarSaldoOutputPort;
 import br.com.desafio.autorizador.usecase.port.output.ObterCartaoLockOutputPort;
 import br.com.desafio.autorizador.usecase.cartao.CartaoSnapshot;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -30,6 +31,7 @@ class RealizarTransacaoUseCaseTest {
     private AtualizarSaldoOutputPort atualizarSaldoOutputPort;
 
     @Test
+    @DisplayName("Deve realizar transacao com sucesso")
     void deveRealizarTransacao(){
         when(obterCartaoLockOutputPort.obterCartaoLock("1234545454"))
                 .thenReturn(new CartaoSnapshot(1L, "1234545454", "123", new BigDecimal("500.00")));
