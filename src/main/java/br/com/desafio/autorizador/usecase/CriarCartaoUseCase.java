@@ -1,7 +1,6 @@
 package br.com.desafio.autorizador.usecase;
 
 import br.com.desafio.autorizador.adapter.input.dto.CriarCartaoResponseDTO;
-import br.com.desafio.autorizador.adapter.output.jpa.CartaoEntity;
 import br.com.desafio.autorizador.domain.Cartao;
 import br.com.desafio.autorizador.domain.exception.CartaoRepetidoException;
 import br.com.desafio.autorizador.usecase.port.input.CriarCartaoInputPort;
@@ -28,8 +27,7 @@ public class CriarCartaoUseCase implements CriarCartaoInputPort {
         if(existeCartao(cartao.getNumero())){
             throw new CartaoRepetidoException(cartao.getNumero(), cartao.getSenha());
         }
-        var cartaoEntity = new CartaoEntity(cartao.getNumero(), cartao.getSenha(), cartao.getSaldo());
-        criarCartaoOutputPort.criar(cartaoEntity);
+        criarCartaoOutputPort.criar(cartao);
         return new CriarCartaoResponseDTO(cartao.getNumero(), cartao.getSenha());
     }
 

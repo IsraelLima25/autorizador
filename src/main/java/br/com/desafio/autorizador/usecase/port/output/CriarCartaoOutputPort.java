@@ -1,8 +1,8 @@
 package br.com.desafio.autorizador.usecase.port.output;
 
-import br.com.desafio.autorizador.adapter.output.jpa.CartaoEntity;
+import br.com.desafio.autorizador.domain.Cartao;
 
 public interface CriarCartaoOutputPort {
 
-    CartaoEntity criar(CartaoEntity cartao);
+    void criar(Cartao cartao);
 }

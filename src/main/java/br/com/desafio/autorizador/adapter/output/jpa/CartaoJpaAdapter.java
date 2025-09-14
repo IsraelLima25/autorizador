@@ -1,5 +1,6 @@
 package br.com.desafio.autorizador.adapter.output.jpa;
 
+import br.com.desafio.autorizador.domain.Cartao;
 import br.com.desafio.autorizador.usecase.port.output.CriarCartaoOutputPort;
 import br.com.desafio.autorizador.usecase.port.output.ExisteCartaoOutputPort;
 import br.com.desafio.autorizador.usecase.port.output.ObterSaldoCartaoOutputPort;
@@ -19,8 +20,9 @@ public class CartaoJpaAdapter implements CriarCartaoOutputPort, ExisteCartaoOutp
 
     @Transactional
     @Override
-    public CartaoEntity criar(CartaoEntity cartao) {
-        return cartaoRepository.save(cartao);
+    public void criar(Cartao cartao) {
+        var cartaoEntity = new CartaoEntity(cartao.getNumero(), cartao.getSenha(), cartao.getSaldo());
+        cartaoRepository.save(cartaoEntity);
     }
 
     @Transactional(readOnly = true)
