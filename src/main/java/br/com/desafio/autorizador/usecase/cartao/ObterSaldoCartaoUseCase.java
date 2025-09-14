@@ -1,11 +1,12 @@
-package br.com.desafio.autorizador.usecase;
+package br.com.desafio.autorizador.usecase.cartao;
 
-import br.com.desafio.autorizador.adapter.input.dto.SaldoCartaoResponseDTO;
+import br.com.desafio.autorizador.adapter.input.dto.cartao.SaldoCartaoResponseDTO;
 import br.com.desafio.autorizador.domain.exception.CartaoNaoExisteException;
 import br.com.desafio.autorizador.usecase.port.input.ObterSaldoCartaoInputPort;
 import br.com.desafio.autorizador.usecase.port.output.ExisteCartaoOutputPort;
 import br.com.desafio.autorizador.usecase.port.output.ObterSaldoCartaoOutputPort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
@@ -21,6 +22,7 @@ public class ObterSaldoCartaoUseCase implements ObterSaldoCartaoInputPort {
         this.existeCartaoOutputPort = existeCartaoOutputPort;
     }
 
+    @Transactional(readOnly = true)
     @Override
     public SaldoCartaoResponseDTO execute(String numeroCartao) {
         if(!existeCartaoOutputPort.existeCartao(numeroCartao)){

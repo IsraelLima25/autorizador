@@ -1,8 +1,8 @@
 package br.com.desafio.autorizador.usecase.transacao;
 
 import br.com.desafio.autorizador.domain.exception.TransacaoInvalidaException;
-import br.com.desafio.autorizador.usecase.port.input.command.RealizarTransacaoCommand;
-import br.com.desafio.autorizador.usecase.snap.CartaoSnapshot;
+import br.com.desafio.autorizador.usecase.command.RealizarTransacaoCommand;
+import br.com.desafio.autorizador.usecase.cartao.CartaoSnapshot;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

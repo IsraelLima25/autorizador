@@ -1,6 +1,6 @@
 package br.com.desafio.autorizador.adapter.input.rest;
 
-import br.com.desafio.autorizador.adapter.input.dto.RealizarTransacaoDTO;
+import br.com.desafio.autorizador.adapter.input.dto.transacao.RealizarTransacaoDTO;
 import br.com.desafio.autorizador.usecase.port.input.RealizarTransacaoInputPort;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

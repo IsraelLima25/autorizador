@@ -1,13 +1,14 @@
-package br.com.desafio.autorizador.usecase;
+package br.com.desafio.autorizador.usecase.cartao;
 
-import br.com.desafio.autorizador.adapter.input.dto.CriarCartaoResponseDTO;
+import br.com.desafio.autorizador.adapter.input.dto.cartao.CriarCartaoResponseDTO;
 import br.com.desafio.autorizador.domain.Cartao;
 import br.com.desafio.autorizador.domain.exception.CartaoRepetidoException;
 import br.com.desafio.autorizador.usecase.port.input.CriarCartaoInputPort;
-import br.com.desafio.autorizador.usecase.port.input.command.CriarCartaoCommand;
+import br.com.desafio.autorizador.usecase.command.CriarCartaoCommand;
 import br.com.desafio.autorizador.usecase.port.output.CriarCartaoOutputPort;
 import br.com.desafio.autorizador.usecase.port.output.ExisteCartaoOutputPort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CriarCartaoUseCase implements CriarCartaoInputPort {
@@ -21,6 +22,7 @@ public class CriarCartaoUseCase implements CriarCartaoInputPort {
         this.existeCartaoOutputPort = existeCartaoOutputPort;
     }
 
+    @Transactional
     @Override
     public CriarCartaoResponseDTO execute(CriarCartaoCommand command) {
         Cartao cartao = new Cartao(command.numero(), command.senha());

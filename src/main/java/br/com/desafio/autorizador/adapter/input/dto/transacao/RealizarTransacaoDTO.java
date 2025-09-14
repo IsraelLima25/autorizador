@@ -1,6 +1,6 @@
-package br.com.desafio.autorizador.adapter.input.dto;
+package br.com.desafio.autorizador.adapter.input.dto.transacao;
 
-import br.com.desafio.autorizador.usecase.port.input.command.RealizarTransacaoCommand;
+import br.com.desafio.autorizador.usecase.command.RealizarTransacaoCommand;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

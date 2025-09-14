@@ -1,9 +1,9 @@
 package br.com.desafio.autorizador.usecase.transacao;
 
-import br.com.desafio.autorizador.usecase.port.input.command.RealizarTransacaoCommand;
+import br.com.desafio.autorizador.usecase.command.RealizarTransacaoCommand;
 import br.com.desafio.autorizador.usecase.port.output.AtualizarSaldoOutputPort;
 import br.com.desafio.autorizador.usecase.port.output.ObterCartaoLockOutputPort;
-import br.com.desafio.autorizador.usecase.snap.CartaoSnapshot;
+import br.com.desafio.autorizador.usecase.cartao.CartaoSnapshot;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

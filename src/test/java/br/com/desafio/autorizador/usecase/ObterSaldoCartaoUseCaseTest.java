@@ -1,7 +1,8 @@
 package br.com.desafio.autorizador.usecase;
 
-import br.com.desafio.autorizador.adapter.input.dto.SaldoCartaoResponseDTO;
+import br.com.desafio.autorizador.adapter.input.dto.cartao.SaldoCartaoResponseDTO;
 import br.com.desafio.autorizador.domain.exception.CartaoNaoExisteException;
+import br.com.desafio.autorizador.usecase.cartao.ObterSaldoCartaoUseCase;
 import br.com.desafio.autorizador.usecase.port.output.ExisteCartaoOutputPort;
 import br.com.desafio.autorizador.usecase.port.output.ObterSaldoCartaoOutputPort;
 import org.junit.jupiter.api.Test;

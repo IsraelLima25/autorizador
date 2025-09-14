@@ -1,6 +1,6 @@
-package br.com.desafio.autorizador.adapter.input.dto;
+package br.com.desafio.autorizador.adapter.input.dto.cartao;
 
-import br.com.desafio.autorizador.usecase.port.input.command.CriarCartaoCommand;
+import br.com.desafio.autorizador.usecase.command.CriarCartaoCommand;
 import jakarta.validation.constraints.NotBlank;
 
 public record CriarCartaoDTO(

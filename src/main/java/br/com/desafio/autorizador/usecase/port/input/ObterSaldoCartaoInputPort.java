@@ -1,6 +1,6 @@
 package br.com.desafio.autorizador.usecase.port.input;
 
-import br.com.desafio.autorizador.adapter.input.dto.SaldoCartaoResponseDTO;
+import br.com.desafio.autorizador.adapter.input.dto.cartao.SaldoCartaoResponseDTO;
 
 public interface ObterSaldoCartaoInputPort {
 

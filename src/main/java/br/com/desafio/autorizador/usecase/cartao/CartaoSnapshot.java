@@ -1,4 +1,4 @@
-package br.com.desafio.autorizador.usecase.snap;
+package br.com.desafio.autorizador.usecase.cartao;
 
 import java.math.BigDecimal;
 

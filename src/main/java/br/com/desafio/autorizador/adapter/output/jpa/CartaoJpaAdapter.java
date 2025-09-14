@@ -3,7 +3,7 @@ package br.com.desafio.autorizador.adapter.output.jpa;
 import br.com.desafio.autorizador.domain.Cartao;
 import br.com.desafio.autorizador.domain.exception.TransacaoInvalidaException;
 import br.com.desafio.autorizador.usecase.port.output.*;
-import br.com.desafio.autorizador.usecase.snap.CartaoSnapshot;
+import br.com.desafio.autorizador.usecase.cartao.CartaoSnapshot;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,20 +20,17 @@ public class CartaoJpaAdapter implements CriarCartaoOutputPort, ExisteCartaoOutp
         this.cartaoRepository = cartaoRepository;
     }
 
-    @Transactional
     @Override
     public void criar(Cartao cartao) {
         var cartaoEntity = new CartaoEntity(cartao.getNumero(), cartao.getSenha(), cartao.getSaldo());
         cartaoRepository.save(cartaoEntity);
     }
 
-    @Transactional(readOnly = true)
     @Override
     public boolean existeCartao(String numero) {
         return cartaoRepository.existsByNumero(numero);
     }
 
-    @Transactional(readOnly = true)
     @Override
     public BigDecimal obterSaldo(String numero){
         return cartaoRepository.obterSaldo(numero);
@@ -43,7 +40,6 @@ public class CartaoJpaAdapter implements CriarCartaoOutputPort, ExisteCartaoOutp
     public String obterSenha(String numeroCartao) {
         return cartaoRepository.obterSenha(numeroCartao);
     }
-
 
     @Override
     @Transactional(propagation = Propagation.MANDATORY)

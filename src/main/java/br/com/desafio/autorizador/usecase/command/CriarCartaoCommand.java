@@ -1,4 +1,4 @@
-package br.com.desafio.autorizador.usecase.port.input.command;
+package br.com.desafio.autorizador.usecase.command;
 
 public record CriarCartaoCommand(
         String numero,

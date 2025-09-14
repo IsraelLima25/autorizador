@@ -1,4 +1,4 @@
-package br.com.desafio.autorizador.usecase.port.input.command;
+package br.com.desafio.autorizador.usecase.command;
 
 import java.math.BigDecimal;
 

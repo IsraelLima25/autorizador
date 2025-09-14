@@ -1,4 +1,4 @@
-package br.com.desafio.autorizador.adapter.input.dto;
+package br.com.desafio.autorizador.adapter.input.dto.cartao;
 
 import java.math.BigDecimal;
 

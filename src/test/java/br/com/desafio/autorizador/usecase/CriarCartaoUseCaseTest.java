@@ -1,7 +1,8 @@
 package br.com.desafio.autorizador.usecase;
 
 import br.com.desafio.autorizador.domain.exception.CartaoRepetidoException;
-import br.com.desafio.autorizador.usecase.port.input.command.CriarCartaoCommand;
+import br.com.desafio.autorizador.usecase.cartao.CriarCartaoUseCase;
+import br.com.desafio.autorizador.usecase.command.CriarCartaoCommand;
 import br.com.desafio.autorizador.usecase.port.output.CriarCartaoOutputPort;
 import br.com.desafio.autorizador.usecase.port.output.ExisteCartaoOutputPort;
 import org.junit.jupiter.api.Test;

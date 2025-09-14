@@ -1,8 +1,8 @@
 package br.com.desafio.autorizador.adapter.input.rest;
 
-import br.com.desafio.autorizador.adapter.input.dto.CriarCartaoDTO;
-import br.com.desafio.autorizador.adapter.input.dto.CriarCartaoResponseDTO;
-import br.com.desafio.autorizador.adapter.input.dto.SaldoCartaoResponseDTO;
+import br.com.desafio.autorizador.adapter.input.dto.cartao.CriarCartaoDTO;
+import br.com.desafio.autorizador.adapter.input.dto.cartao.CriarCartaoResponseDTO;
+import br.com.desafio.autorizador.adapter.input.dto.cartao.SaldoCartaoResponseDTO;
 import br.com.desafio.autorizador.usecase.port.input.CriarCartaoInputPort;
 import br.com.desafio.autorizador.usecase.port.input.ObterSaldoCartaoInputPort;
 import jakarta.validation.Valid;

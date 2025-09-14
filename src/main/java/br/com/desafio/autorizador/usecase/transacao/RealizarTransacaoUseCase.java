@@ -1,7 +1,7 @@
 package br.com.desafio.autorizador.usecase.transacao;
 
 import br.com.desafio.autorizador.usecase.port.input.RealizarTransacaoInputPort;
-import br.com.desafio.autorizador.usecase.port.input.command.RealizarTransacaoCommand;
+import br.com.desafio.autorizador.usecase.command.RealizarTransacaoCommand;
 import br.com.desafio.autorizador.usecase.port.output.AtualizarSaldoOutputPort;
 import br.com.desafio.autorizador.usecase.port.output.ObterCartaoLockOutputPort;
 import org.springframework.stereotype.Service;
