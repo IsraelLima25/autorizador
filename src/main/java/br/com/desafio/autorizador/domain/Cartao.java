@@ -24,4 +24,12 @@ public class Cartao {
     public BigDecimal getSaldo() {
         return saldo;
     }
+
+    public boolean senhaConfere(String senhaTeste){
+        return this.senha.equals(senhaTeste);
+    }
+
+    public boolean temSaldo(BigDecimal valorDebito, BigDecimal saldoAtual){
+        return saldoAtual.compareTo(valorDebito) < 0;
+    }
 }

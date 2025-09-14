@@ -1,16 +1,18 @@
 package br.com.desafio.autorizador.adapter.output.jpa;
 
 import br.com.desafio.autorizador.domain.Cartao;
-import br.com.desafio.autorizador.usecase.port.output.CriarCartaoOutputPort;
-import br.com.desafio.autorizador.usecase.port.output.ExisteCartaoOutputPort;
-import br.com.desafio.autorizador.usecase.port.output.ObterSaldoCartaoOutputPort;
+import br.com.desafio.autorizador.domain.exception.TransacaoInvalidaException;
+import br.com.desafio.autorizador.usecase.port.output.*;
+import br.com.desafio.autorizador.usecase.snap.CartaoSnapshot;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
 @Component
-public class CartaoJpaAdapter implements CriarCartaoOutputPort, ExisteCartaoOutputPort, ObterSaldoCartaoOutputPort {
+public class CartaoJpaAdapter implements CriarCartaoOutputPort, ExisteCartaoOutputPort,
+        ObterSaldoCartaoOutputPort, ObterSenhaCartaoOutputPort, ObterCartaoLockOutputPort, AtualizarSaldoOutputPort {
 
     private final CartaoRepository cartaoRepository;
 
@@ -35,5 +37,26 @@ public class CartaoJpaAdapter implements CriarCartaoOutputPort, ExisteCartaoOutp
     @Override
     public BigDecimal obterSaldo(String numero){
         return cartaoRepository.obterSaldo(numero);
+    }
+
+    @Override
+    public String obterSenha(String numeroCartao) {
+        return cartaoRepository.obterSenha(numeroCartao);
+    }
+
+
+    @Override
+    @Transactional(propagation = Propagation.MANDATORY)
+    public void atualizarSaldo(Long id, BigDecimal novoSaldo) {
+        int n = cartaoRepository.atualizarSaldoPorId(id, novoSaldo);
+        if (n == 0) throw new TransacaoInvalidaException("CARTAO_INEXISTENTE");
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.MANDATORY)
+    public CartaoSnapshot obterCartaoLock(String numeroCartao) {
+        var e = cartaoRepository.obterPorNumeroParaAtualizar(numeroCartao)
+                .orElseThrow(() -> new TransacaoInvalidaException("CARTAO_INEXISTENTE"));
+        return new CartaoSnapshot(e.getId(), e.getNumero(), e.getSenha(), e.getSaldo());
     }
 }

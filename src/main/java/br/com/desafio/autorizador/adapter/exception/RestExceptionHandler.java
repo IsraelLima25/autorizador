@@ -2,6 +2,7 @@ package br.com.desafio.autorizador.adapter.exception;
 
 import br.com.desafio.autorizador.domain.exception.CartaoNaoExisteException;
 import br.com.desafio.autorizador.domain.exception.CartaoRepetidoException;
+import br.com.desafio.autorizador.domain.exception.TransacaoInvalidaException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -24,5 +25,10 @@ public class RestExceptionHandler {
     @ExceptionHandler(CartaoNaoExisteException.class)
     public ResponseEntity<Map<String, String>> handlerCartaoNaoExiste(CartaoNaoExisteException ex) {
         return ResponseEntity.notFound().build();
+    }
+
+    @ExceptionHandler(TransacaoInvalidaException.class)
+    public ResponseEntity<String> handlerTransacaoInvalida(TransacaoInvalidaException ex) {
+        return ResponseEntity.unprocessableEntity().body(ex.getMessage());
     }
 }

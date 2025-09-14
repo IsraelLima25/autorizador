@@ -21,6 +21,9 @@ public class CartaoEntity {
     @Column(nullable = false, name = "saldo")
     private BigDecimal saldo;
 
+    @Deprecated
+    public CartaoEntity() { }
+
     public CartaoEntity(String numero, String senha, BigDecimal saldo) {
         this.numero = numero;
         this.senha = senha;
