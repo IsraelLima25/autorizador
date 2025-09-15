@@ -30,7 +30,7 @@ public class RestExceptionHandler {
     public ResponseEntity<Map<String, String>> handlerCartaoRepetido(CartaoRepetidoException ex) {
         var body = Map.of(
                 "senha", ex.getSenha(),
-                "numero", ex.getNumero()
+                "numeroCartao", ex.getNumero()
         );
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(body);
     }

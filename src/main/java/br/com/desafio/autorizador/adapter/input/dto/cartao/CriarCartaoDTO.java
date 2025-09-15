@@ -6,12 +6,12 @@ import jakarta.validation.constraints.NotBlank;
 public record CriarCartaoDTO(
 
         @NotBlank
-        String numero,
+        String numeroCartao,
         @NotBlank
         String senha
 ) {
 
     public CriarCartaoCommand toCommand(){
-        return new CriarCartaoCommand(numero, senha);
+        return new CriarCartaoCommand(numeroCartao, senha);
     }
 }

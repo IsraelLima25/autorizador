@@ -29,7 +29,7 @@ public class CartaoController {
     public ResponseEntity<CriarCartaoResponseDTO> criar(@Valid @RequestBody CriarCartaoDTO criarCartaoDTO,
                                                         UriComponentsBuilder uriBuilder){
         var cartaoCriado = criarCartaoInputPort.execute(criarCartaoDTO.toCommand());
-        URI uri = uriBuilder.path("/cartoes/{numeroCartao}").buildAndExpand(cartaoCriado.numero()).toUri();
+        URI uri = uriBuilder.path("/cartoes/{numeroCartao}").buildAndExpand(cartaoCriado.numeroCartao()).toUri();
         return ResponseEntity.created(uri).body(cartaoCriado);
     }
 
