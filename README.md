@@ -1,11 +1,20 @@
 # Arquitetura
 
-Durante o desenvolvimento optei por usar uma arquitetura estilo hexagonal.
-Com isso acredito que ganhamos na troca de tecnologia sem reescrever regra de negócio,
-evolução segura do domínio e testes rápidos e confiáveis.
+## Decisões de Arquitetura
 
-Na validação da transação optei por usar o padrão de projeto "chain of responsability", com isso
-conseguimos dividir bem as responsabilidades(SOLID -> SRP), ter desacoplamento total e Extensível/OCP.
+Durante o desenvolvimento, optei por adotar uma **arquitetura hexagonal**, o que traz benefícios importantes, como:
+
+- **Independência tecnológica**: permite trocar frameworks ou ferramentas sem reescrever as regras de negócio.
+- **Evolução segura do domínio**: a lógica central permanece protegida de detalhes de infraestrutura.
+- **Maior testabilidade**: testes mais rápidos, confiáveis e próximos da regra de negócio.
+
+## Padrão de Projeto na Validação
+
+Para a **validação da transação**, utilizei o padrão de projeto **Chain of Responsibility**, que possibilita:
+
+- **Divisão clara de responsabilidades**: alinhada ao princípio **SRP (Single Responsibility Principle)**.
+- **Desacoplamento total** entre as validações, facilitando manutenção e evolução.
+- **Extensibilidade**: permite adicionar novas validações sem modificar as existentes (**OCP – Open/Closed Principle**).
 
 # Teste de programação - VR Benefícios
 
