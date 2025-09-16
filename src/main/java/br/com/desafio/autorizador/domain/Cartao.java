@@ -30,6 +30,6 @@ public class Cartao {
     }
 
     public boolean temSaldo(BigDecimal valorDebito, BigDecimal saldoAtual){
-        return saldoAtual.compareTo(valorDebito) < 0;
+        return saldoAtual.compareTo(valorDebito) >= 0;
     }
 }

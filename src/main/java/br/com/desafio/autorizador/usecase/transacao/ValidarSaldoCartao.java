@@ -10,7 +10,7 @@ public class ValidarSaldoCartao implements TransacaoValidador{
     @Override
     public void validar(ContextoTransacao ctx) {
         Cartao cartao = new Cartao(ctx.cartaoSnapshot().numero(), ctx.cartaoSnapshot().senha());
-        if (cartao.temSaldo(ctx.transacaoCommand().valor(), ctx.cartaoSnapshot().saldo())) {
+        if (!cartao.temSaldo(ctx.transacaoCommand().valor(), ctx.cartaoSnapshot().saldo())) {
             throw new TransacaoInvalidaException("SALDO_INSUFICIENTE");
         }
     }
