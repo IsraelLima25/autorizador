@@ -54,7 +54,7 @@ class CartaoControllerTest {
 
         var requestJson = """
             {
-              "numero": "6549873025634501",
+              "numeroCartao": "6549873025634501",
               "senha": "1234"
             }
             """;
@@ -75,7 +75,7 @@ class CartaoControllerTest {
 
         var requestJson = """
             {
-              "numero": "6549873025634501",
+              "numeroCartao": "6549873025634501",
               "senha": "9999"
             }
             """;
